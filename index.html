@@ -3,133 +3,148 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXA</title>
+  <title>NEXA Claim Portal</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #000;
-      color: #f1c40f;
+      background: linear-gradient(to right, #9945FF, #00FFA3); /* Solana + Base gradient */
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
     }
-    header {
-      padding: 20px;
-      background: #111;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-    .container {
-      padding: 50px 20px;
-    }
-    h1 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-    }
-    .btn {
-      padding: 15px 30px;
-      font-size: 1em;
-      color: #000;
-      background: #f1c40f;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background: #fff200;
-    }
-    footer {
-      padding: 20px;
-      margin-top: 40px;
-      background: #111;
-      font-size: 0.9em;
-    }
-    .logos {
-      margin-top: 30px;
-    }
-    .logos img {
-      height: 60px;
-      margin: 10px;
-    }
-    /* Airdrop Section */
-    #airdrop {
-      background: #111;
-      padding: 60px 20px;
-      margin-top: 60px;
-    }
-    #airdrop h2 {
-      font-size: 2.5em;
-      margin-bottom: 20px;
+    .card {
+      background: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
+      max-width: 400px;
+      width: 90%;
     }
     input {
-      padding: 12px;
+      padding: 10px;
       width: 80%;
-      max-width: 400px;
-      border-radius: 6px;
+      border-radius: 10px;
       border: none;
-      margin-bottom: 20px;
-      font-size: 1em;
+      margin-bottom: 15px;
+      text-align: center;
     }
-    button {
-      padding: 12px 25px;
-      font-size: 1em;
-      color: #000;
-      background: #f1c40f;
+    .btn {
+      padding: 12px 20px;
       border: none;
-      border-radius: 6px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 5px;
+      color: white;
+      width: 45%;
+      transition: transform 0.2s ease;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+    }
+    .solana-btn {
+      background: linear-gradient(45deg, #9945FF, #14F195);
+    }
+    .base-btn {
+      background: linear-gradient(45deg, #0052FF, #00A3FF);
+    }
+    .disabled {
+      background: grey !important;
+      cursor: not-allowed;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .success {
+      color: #00FFA3;
+    }
+    .error {
+      color: #FF4D4D;
+    }
+    .reset-btn {
+      margin-top: 20px;
+      background: white;
+      color: black;
+      padding: 10px 15px;
+      border-radius: 10px;
       cursor: pointer;
       font-weight: bold;
     }
-    .result {
-      margin-top: 30px;
-      font-size: 1.3em;
-      color: #fff;
+    img {
+      height: 40px;
+      margin: 0 10px;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
-  <header>NEXA</header>
-  <div class="container">
-    <h1>Welcome to NEXA</h1>
-    <p>The future of decentralized innovation — built on <b>Solana</b> and <b>Base</b>.</p>
-    <a href="#airdrop" class="btn">Check Airdrop</a>
-
-    <div class="logos">
+  <div class="card">
+    <h1>🚀 Claim Your NEXA</h1>
+    <p>Enter your Solana or Base wallet address</p>
+    <input type="text" id="wallet" placeholder="Enter wallet address">
+    <br>
+    <button class="btn solana-btn" id="solanaBtn">Claim on Solana</button>
+    <button class="btn base-btn" id="baseBtn">Claim on Base</button>
+    <div class="result" id="result"></div>
+    <button class="reset-btn" id="resetBtn" style="display:none;">🔄 Check Another Wallet</button>
+    <div style="margin-top:15px;">
       <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana Logo">
       <img src="https://cryptologos.cc/logos/base-base-logo.png" alt="Base Logo">
     </div>
   </div>
 
-  <!-- Airdrop Checker -->
-  <section id="airdrop">
-    <h2>NEXA Airdrop Checker</h2>
-    <p>Enter your Base or Solana wallet address to check your allocation:</p>
-    <input type="text" id="wallet" placeholder="Paste your wallet address here">
-    <br>
-    <button onclick="checkAirdrop()">Check Allocation</button>
-
-    <div class="result" id="result"></div>
-  </section>
-
-  <footer>© 2025 NEXA. All rights reserved.</footer>
-
   <script>
-    function checkAirdrop() {
-      const wallet = document.getElementById("wallet").value.trim();
-      const resultDiv = document.getElementById("result");
-      
-      if (wallet === "") {
-        resultDiv.innerHTML = "⚠️ Please enter a valid wallet address.";
-      } else {
-        resultDiv.innerHTML = `✅ Wallet <b>${wallet}</b><br>You are allocated <b>31,265 NEXA</b> 🎉`;
-      }
+    const solanaBtn = document.getElementById("solanaBtn");
+    const baseBtn = document.getElementById("baseBtn");
+    const result = document.getElementById("result");
+    const resetBtn = document.getElementById("resetBtn");
+
+    function checkEligibility(address) {
+      // Demo logic: every wallet gets 31,265 NEXA ✅
+      return true; 
     }
+
+    function handleClaim(chain) {
+      const wallet = document.getElementById("wallet").value.trim();
+      if (!wallet) {
+        result.innerHTML = "<span class='error'>⚠️ Please enter a wallet address</span>";
+        return;
+      }
+
+      const eligible = checkEligibility(wallet);
+      if (eligible) {
+        result.innerHTML = `<span class='success'>🎉 You got 31,265 NEXA on ${chain}!</span>`;
+      } else {
+        result.innerHTML = `<span class='error'>🚫 This ${chain} wallet is not eligible</span>`;
+      }
+
+      // Disable both buttons after attempt
+      solanaBtn.classList.add("disabled");
+      solanaBtn.disabled = true;
+      baseBtn.classList.add("disabled");
+      baseBtn.disabled = true;
+
+      resetBtn.style.display = "inline-block";
+    }
+
+    solanaBtn.addEventListener("click", () => handleClaim("Solana"));
+    baseBtn.addEventListener("click", () => handleClaim("Base"));
+    resetBtn.addEventListener("click", () => {
+      document.getElementById("wallet").value = "";
+      result.innerHTML = "";
+      solanaBtn.classList.remove("disabled");
+      baseBtn.classList.remove("disabled");
+      solanaBtn.disabled = false;
+      baseBtn.disabled = false;
+      resetBtn.style.display = "none";
+    });
   </script>
 </body>
 </html>
