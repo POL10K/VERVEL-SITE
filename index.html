@@ -1,118 +1,135 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXA - People Powered. Premium Future.</title>
+  <title>NEXA</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #000;
+      background: #000;
       color: #f1c40f;
       text-align: center;
     }
     header {
+      padding: 20px;
+      background: #111;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .container {
       padding: 50px 20px;
     }
     h1 {
-      font-size: 4em;
-      margin: 0;
+      font-size: 3em;
+      margin-bottom: 20px;
     }
-    p.tagline {
-      font-size: 1.5em;
-      margin: 10px 0 30px;
-      color: #fff;
+    p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
     }
     .btn {
-      display: inline-block;
       padding: 15px 30px;
-      margin: 10px;
-      font-size: 1.2em;
+      font-size: 1em;
       color: #000;
       background: #f1c40f;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
       text-decoration: none;
       font-weight: bold;
+      transition: 0.3s;
+      cursor: pointer;
     }
-    section {
-      padding: 50px 20px;
-    }
-    .token-info, .roadmap {
-      max-width: 800px;
-      margin: auto;
-      background: #111;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 40px;
-    }
-    h2 {
-      color: #f1c40f;
-      margin-bottom: 20px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      color: #fff;
-    }
-    ul li {
-      padding: 8px 0;
+    .btn:hover {
+      background: #fff200;
     }
     footer {
-      background: #111;
       padding: 20px;
+      margin-top: 40px;
+      background: #111;
       font-size: 0.9em;
     }
-    footer a {
-      color: #f1c40f;
-      margin: 0 10px;
-      text-decoration: none;
+    .logos {
+      margin-top: 30px;
+    }
+    .logos img {
+      height: 60px;
+      margin: 10px;
+    }
+    /* Airdrop Section */
+    #airdrop {
+      background: #111;
+      padding: 60px 20px;
+      margin-top: 60px;
+    }
+    #airdrop h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+    input {
+      padding: 12px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1em;
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 1em;
+      color: #000;
+      background: #f1c40f;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
       font-weight: bold;
     }
-    .chain-logos img {
-      width: 100px;
-      margin: 20px;
+    .result {
+      margin-top: 30px;
+      font-size: 1.3em;
+      color: #fff;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>NEXA</h1>
-    <p class="tagline">People Powered. Premium Future.</p>
+  <header>NEXA</header>
+  <div class="container">
+    <h1>Welcome to NEXA</h1>
+    <p>The future of decentralized innovation — built on <b>Solana</b> and <b>Base</b>.</p>
     <a href="#airdrop" class="btn">Check Airdrop</a>
-    <a href="#community" class="btn">Join Community</a>
-  </header>  <section>
-    <h2>About Nexa</h2>
-    <p>
-      Nexa is a <strong>community-driven token</strong> built on <strong>Solana</strong> and <strong>Base</strong>. 
-      We combine the speed and scalability of Solana with the security and accessibility of Base.
-      Our mission: to give power back to the people.
-    </p><div class="chain-logos">
-  <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana">
-  <img src="https://cryptologos.cc/logos/base-base-logo.png" alt="Base">
-</div>
 
-  </section>  <section class="token-info">
-    <h2>Token Info</h2>
-    <ul>
-      <li><strong>Total Supply:</strong> 10,000,000,000 (10B)</li>
-      <li><strong>Chains:</strong> Solana & Base</li>
-      <li><strong>Utility:</strong> Payments, Governance, Staking, Rewards</li>
-    </ul>
-  </section>  <section class="roadmap">
-    <h2>Roadmap</h2>
-    <ul>
-      <li><strong>Phase 1:</strong> Ecosystem Growth & Partnerships</li>
-    </ul>
-      <li><strong>Phase 2:</strong> Exchange Listings</li>
-      <li><strong>Phase 3:</strong> Community Launch & Airdrops</li>
-    </ul>
-  </section>  <footer>
-    <p>Follow us:</p>
-    <a href="https://twitter.com/">Twitter/X</a>
-    <a href="https://t.me/">Telegram</a>
-    <a href="https://discord.com/">Discord</a>
-  </footer>
+    <div class="logos">
+      <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana Logo">
+      <img src="https://cryptologos.cc/logos/base-base-logo.png" alt="Base Logo">
+    </div>
+  </div>
+
+  <!-- Airdrop Checker -->
+  <section id="airdrop">
+    <h2>NEXA Airdrop Checker</h2>
+    <p>Enter your Base or Solana wallet address to check your allocation:</p>
+    <input type="text" id="wallet" placeholder="Paste your wallet address here">
+    <br>
+    <button onclick="checkAirdrop()">Check Allocation</button>
+
+    <div class="result" id="result"></div>
+  </section>
+
+  <footer>© 2025 NEXA. All rights reserved.</footer>
+
+  <script>
+    function checkAirdrop() {
+      const wallet = document.getElementById("wallet").value.trim();
+      const resultDiv = document.getElementById("result");
+      
+      if (wallet === "") {
+        resultDiv.innerHTML = "⚠️ Please enter a valid wallet address.";
+      } else {
+        resultDiv.innerHTML = `✅ Wallet <b>${wallet}</b><br>You are allocated <b>31,265 NEXA</b> 🎉`;
+      }
+    }
+  </script>
 </body>
 </html>
