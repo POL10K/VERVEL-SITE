@@ -1,0 +1,118 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEXA - People Powered. Premium Future.</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #f1c40f;
+      text-align: center;
+    }
+    header {
+      padding: 50px 20px;
+    }
+    h1 {
+      font-size: 4em;
+      margin: 0;
+    }
+    p.tagline {
+      font-size: 1.5em;
+      margin: 10px 0 30px;
+      color: #fff;
+    }
+    .btn {
+      display: inline-block;
+      padding: 15px 30px;
+      margin: 10px;
+      font-size: 1.2em;
+      color: #000;
+      background: #f1c40f;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 50px 20px;
+    }
+    .token-info, .roadmap {
+      max-width: 800px;
+      margin: auto;
+      background: #111;
+      padding: 30px;
+      border-radius: 10px;
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #f1c40f;
+      margin-bottom: 20px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      color: #fff;
+    }
+    ul li {
+      padding: 8px 0;
+    }
+    footer {
+      background: #111;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    footer a {
+      color: #f1c40f;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .chain-logos img {
+      width: 100px;
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>NEXA</h1>
+    <p class="tagline">People Powered. Premium Future.</p>
+    <a href="#airdrop" class="btn">Check Airdrop</a>
+    <a href="#community" class="btn">Join Community</a>
+  </header>  <section>
+    <h2>About Nexa</h2>
+    <p>
+      Nexa is a <strong>community-driven token</strong> built on <strong>Solana</strong> and <strong>Base</strong>. 
+      We combine the speed and scalability of Solana with the security and accessibility of Base.
+      Our mission: to give power back to the people.
+    </p><div class="chain-logos">
+  <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana">
+  <img src="https://cryptologos.cc/logos/base-base-logo.png" alt="Base">
+</div>
+
+  </section>  <section class="token-info">
+    <h2>Token Info</h2>
+    <ul>
+      <li><strong>Total Supply:</strong> 10,000,000,000 (10B)</li>
+      <li><strong>Chains:</strong> Solana & Base</li>
+      <li><strong>Utility:</strong> Payments, Governance, Staking, Rewards</li>
+    </ul>
+  </section>  <section class="roadmap">
+    <h2>Roadmap</h2>
+    <ul>
+      <li><strong>Phase 1:</strong> Ecosystem Growth & Partnerships</li>
+    </ul>
+      <li><strong>Phase 2:</strong> Exchange Listings</li>
+      <li><strong>Phase 3:</strong> Community Launch & Airdrops</li>
+    </ul>
+  </section>  <footer>
+    <p>Follow us:</p>
+    <a href="https://twitter.com/">Twitter/X</a>
+    <a href="https://t.me/">Telegram</a>
+    <a href="https://discord.com/">Discord</a>
+  </footer>
+</body>
+</html>
