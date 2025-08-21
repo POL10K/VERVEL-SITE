@@ -1,150 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NEXA Claim Portal</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to right, #9945FF, #00FFA3); /* Solana + Base gradient */
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-    }
-    .card {
-      background: rgba(0, 0, 0, 0.7);
-      padding: 30px;
-      border-radius: 20px;
-      box-shadow: 0px 8px 20px rgba(0,0,0,0.5);
-      max-width: 400px;
-      width: 90%;
-    }
-    input {
-      padding: 10px;
-      width: 80%;
-      border-radius: 10px;
-      border: none;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .btn {
-      padding: 12px 20px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: bold;
-      margin: 5px;
-      color: white;
-      width: 45%;
-      transition: transform 0.2s ease;
-    }
-    .btn:hover {
-      transform: scale(1.05);
-    }
-    .solana-btn {
-      background: linear-gradient(45deg, #9945FF, #14F195);
-    }
-    .base-btn {
-      background: linear-gradient(45deg, #0052FF, #00A3FF);
-    }
-    .disabled {
-      background: grey !important;
-      cursor: not-allowed;
-    }
-    .result {
-      margin-top: 20px;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .success {
-      color: #00FFA3;
-    }
-    .error {
-      color: #FF4D4D;
-    }
-    .reset-btn {
-      margin-top: 20px;
-      background: white;
-      color: black;
-      padding: 10px 15px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-weight: bold;
-    }
-    img {
-      height: 40px;
-      margin: 0 10px;
-      vertical-align: middle;
-    }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>🚀 Claim Your NEXA</h1>
-    <p>Enter your Solana or Base wallet address</p>
-    <input type="text" id="wallet" placeholder="Enter wallet address">
-    <br>
-    <button class="btn solana-btn" id="solanaBtn">Claim on Solana</button>
-    <button class="btn base-btn" id="baseBtn">Claim on Base</button>
-    <div class="result" id="result"></div>
-    <button class="reset-btn" id="resetBtn" style="display:none;">🔄 Check Another Wallet</button>
-    <div style="margin-top:15px;">
-      <img src="https://cryptologos.cc/logos/solana-sol-logo.png" alt="Solana Logo">
-      <img src="https://cryptologos.cc/logos/base-base-logo.png" alt="Base Logo">
-    </div>
-  </div>
+export default function Home() { return ( <div className="min-h-screen flex flex-col items-center justify-between bg-gradient-to-b from-blue-600 to-blue-900 text-white"> {/* Header /} <header className="w-full flex justify-between items-center p-6"> {/ Logo SVG */} <div className="flex items-center gap-2"> <svg
+xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 100 100"
+className="w-10 h-10"
+fill="currentColor"
+> <circle cx="50" cy="50" r="48" fill="#0052FF" /> <text
+x="50%"
+y="55%"
+textAnchor="middle"
+fontSize="36"
+fontWeight="bold"
+fill="white"
+fontFamily="Arial, sans-serif"
+> BB </text> </svg> <h1 className="text-3xl font-bold tracking-wide">BLUEBASE</h1> </div>
 
-  <script>
-    const solanaBtn = document.getElementById("solanaBtn");
-    const baseBtn = document.getElementById("baseBtn");
-    const result = document.getElementById("result");
-    const resetBtn = document.getElementById("resetBtn");
+<a
+      href="https://x.com/bluebase_xy?s=09"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="bg-white text-blue-700 px-4 py-2 rounded-full font-semibold shadow-md hover:bg-gray-200"
+    >
+      Follow us on X
+    </a>
+  </header>
 
-    function checkEligibility(address) {
-      // Demo logic: every wallet gets 31,265 NEXA ✅
-      return true; 
-    }
+  {/* Hero */}
+  <main className="flex flex-col items-center text-center px-6 mt-20 max-w-3xl">
+    <h2 className="text-5xl font-extrabold mb-4">Why BLUEBASE?</h2>
+    <p className="text-xl leading-relaxed mb-10">
+      Because <span className="font-semibold">Base is Blue</span>. And the community deserves a coin that feels like home.
+    </p>
+  </main>
 
-    function handleClaim(chain) {
-      const wallet = document.getElementById("wallet").value.trim();
-      if (!wallet) {
-        result.innerHTML = "<span class='error'>⚠️ Please enter a wallet address</span>";
-        return;
-      }
+  {/* Body */}
+  <section className="flex flex-col gap-6 text-lg text-center px-6 max-w-2xl">
+    <p>💎 <span className="font-semibold">Trust:</span> Blue represents trust and reliability.</p>
+    <p>🌍 <span className="font-semibold">Community:</span> Base is growing, and it needs a symbol for the people.</p>
+    <p>✨ <span className="font-semibold">Identity:</span> Everyone loves blue — BLUEBASE captures that energy.</p>
 
-      const eligible = checkEligibility(wallet);
-      if (eligible) {
-        result.innerHTML = `<span class='success'>🎉 You got 31,265 NEXA on ${chain}!</span>`;
-      } else {
-        result.innerHTML = `<span class='error'>🚫 This ${chain} wallet is not eligible</span>`;
-      }
+    <p className="mt-6 text-2xl font-bold italic">
+      BLUEBASE isn’t just a token — it’s a movement of people who believe in Base and the color blue.
+    </p>
+  </section>
 
-      // Disable both buttons after attempt
-      solanaBtn.classList.add("disabled");
-      solanaBtn.disabled = true;
-      baseBtn.classList.add("disabled");
-      baseBtn.disabled = true;
+  {/* Footer */}
+  <footer className="w-full text-center py-10 text-gray-300">
+    <p className="text-lg">🌊 Join the wave.</p>
+    <a
+      href="https://x.com/bluebase_xy?s=09"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline hover:text-white"
+    >
+      Follow us on X
+    </a>
+  </footer>
+</div>
 
-      resetBtn.style.display = "inline-block";
-    }
+); }
 
-    solanaBtn.addEventListener("click", () => handleClaim("Solana"));
-    baseBtn.addEventListener("click", () => handleClaim("Base"));
-    resetBtn.addEventListener("click", () => {
-      document.getElementById("wallet").value = "";
-      result.innerHTML = "";
-      solanaBtn.classList.remove("disabled");
-      baseBtn.classList.remove("disabled");
-      solanaBtn.disabled = false;
-      baseBtn.disabled = false;
-      resetBtn.style.display = "none";
-    });
-  </script>
-</body>
-</html>
+
